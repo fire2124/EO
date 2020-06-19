@@ -1,0 +1,12 @@
+name: EO2124
+title: EO2124
+username:
+account: eo2124
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 2476894
+bundleId: 3291122
+url: https://eo2124.shinyapps.io/EO2124/
+when: 1592559420.47246
+asMultiple: FALSE
+asStatic: FALSE

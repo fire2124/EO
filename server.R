@@ -15,12 +15,16 @@ library(DT)
 shinyServer(function(input, output) {
     color = "blue"
     data = 0
-    
-    
+
     readOffers = function() {
         psql <- dbDriver("PostgreSQL")
         pcon <- dbConnect(psql, dbname = "studenti", host = "88.212.32.217", port = 5432, user = "student01", password = "student01")
-        query = sprintf("select region, district from eks.order_delivery_place")
+        query = sprintf("SELECT  eks.eks_order.amount_value,
+		eks.order_delivery_place.region,
+			eks.order_delivery_place.district
+From eks.eks_order 
+FULL OUTER JOIN eks.order_delivery_place 
+ON eks.eks_order.order_state_id = eks.order_delivery_place.eks_order_id;")
         data = dbGetQuery(pcon, query)
         dbDisconnect(pcon)
         data
